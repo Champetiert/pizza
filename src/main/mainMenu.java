@@ -1,7 +1,8 @@
-package main;
+/*package main;
 
 import java.util.Scanner;
 
+import error.PizzaException;
 import pizza.Pizza;
 import pizza.PizzaMemDao;
 
@@ -9,6 +10,7 @@ public class mainMenu {
 
 	public static void mainMenu(String[] args) {
 		// Pizza p1=new Pizza("CHOR", "Chorizo", 10);
+		try {
 		PizzaMemDao tabPiz = new PizzaMemDao();
 		Scanner questionUser = new Scanner(System.in);
 		int a = 0, prix;
@@ -58,6 +60,9 @@ public class mainMenu {
 			}
 
 		}
+		}catch(PizzaException e) {
+			e.getMessage();	
+		}
 	}
 
-}
+}*/

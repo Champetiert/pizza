@@ -1,21 +1,45 @@
 package pizza;
 
+import error.PizzaException;
+
 public class Pizza {
 	private String code;
 	private String désignation;
-	private int prix;
-	
-	public Pizza(String code, String désignation, int prix) {
-		super();
-		this.code = code;
-		this.désignation = désignation;
-		this.prix = prix;
+	private float prix;
+	private CatégoriesPizza catégorie;
+
+	public Pizza(String code, String désignation, float prix,CatégoriesPizza catégorie) throws PizzaException {
+
+		String messageErreur = null;
+
+		if (code.trim().length() > 4) {
+			messageErreur += "Code pizza trop long \n\r";
+		}
+		if (prix <= 0) {
+			messageErreur += "Prix doit etre > à 0\n\r";
+		}
+		if(catégorie==null) {
+			messageErreur += "Définir une catégorie \n\r";
+		}
+		
+		if (messageErreur == null) {
+			this.code = code;
+			this.désignation = désignation;
+			this.prix = prix;
+			this.catégorie=catégorie;
+		} else {
+			throw new PizzaException(messageErreur);
+		}
 	}
+
+
 
 	@Override
 	public String toString() {
-		return "Pizza code=" + code + "\n désignation=" + désignation + "\n prix=" + prix + "\n\n";
+		return "Pizza code=" + code + ", désignation=" + désignation + ", prix=" + prix + ", catégorie=" + catégorie.getCatégories()+"\n\r";
 	}
+
+
 
 	public String getCode() {
 		return code;
@@ -33,15 +57,12 @@ public class Pizza {
 		this.désignation = désignation;
 	}
 
-	public int getPrix() {
+	public float getPrix() {
 		return prix;
 	}
 
 	public void setPrix(int prix) {
 		this.prix = prix;
 	}
-	
-	
-	
-	
+
 }

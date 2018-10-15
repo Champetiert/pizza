@@ -6,20 +6,21 @@ import java.util.List;
 
 import javax.management.ListenerNotFoundException;
 
+import error.PizzaException;
 import iPizza.IPizzaDao;
 
 public class PizzaMemDao implements IPizzaDao {
 
 	private ArrayList<Pizza> listPizza = null; //Liste D'objet Pizza
 
-	public PizzaMemDao() { //Constructeur avec 3 pizza par default
+	public PizzaMemDao() throws PizzaException { //Constructeur avec 3 pizza par default
 		super();
 
 		this.listPizza = new ArrayList<Pizza>();
 
-		this.listPizza.add(new Pizza("MAR", "MARGARITA", 9));
-		this.listPizza.add(new Pizza("4FRO", "4 FROMAGE", 11));
-		this.listPizza.add(new Pizza("REI", "REINE", 10));
+		this.listPizza.add(new Pizza("MAR", "MARGARITA", 9,CatégoriesPizza.FROMAGE));
+		this.listPizza.add(new Pizza("4FRO", "4 FROMAGE", 11,CatégoriesPizza.FROMAGE));
+		this.listPizza.add(new Pizza("REI", "REINE", 10,CatégoriesPizza.VIANDE));
 
 	}
 
@@ -42,9 +43,8 @@ public class PizzaMemDao implements IPizzaDao {
 	}
 
 	@Override
-	public void saveNewPizza(Pizza pizza) {			//ajoute pizza à la liste 
+	public void saveNewPizza(Pizza pizza) {			//ajoute pizza à la liste 	
 		listPizza.add(pizza);
-
 	}
 
 	@Override
