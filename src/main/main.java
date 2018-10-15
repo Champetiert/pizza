@@ -13,11 +13,13 @@ public class main {
 		Pizza p1=new Pizza("CHOR", "Chorizo", 10);
 		PizzaMemDao pizzaMemDao=new PizzaMemDao();
 	
-
-		List<Pizza> listPizza=pizzaMemDao.findAllPizzas();
 		
+		pizzaMemDao.updatePizza("MAR",p1);
+		List<Pizza> listPizza=pizzaMemDao.findAllPizzas();
 
-		System.out.println(listPizza);
+		//System.out.println(listPizza);
+		
+		System.out.println(pizzaMemDao.findPizzaByCode("4FROM"));
 	}
 
 }
