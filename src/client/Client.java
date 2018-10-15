@@ -7,11 +7,8 @@ import pizza.Pizza;
  * @author formation
  *
  */
-/**
- * @author formation
- *
- */
-public class Client implements ICompteStat{
+public class Client implements ICompteStat {
+
 	private int id;
 	private String nom;
 	private String prenom;
