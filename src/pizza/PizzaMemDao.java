@@ -25,13 +25,11 @@ public class PizzaMemDao implements IPizzaDao {
 
 	@Override
 	public ArrayList<Pizza> findAllPizzas() {
-
 		return getListPizza();
 	}
 
 	@Override
 	public String toString() {
-
 		return "PizzaMemDao [listPizza=" + listPizza + "]";
 	}
 
@@ -41,6 +39,22 @@ public class PizzaMemDao implements IPizzaDao {
 
 	public void setListPizza(ArrayList<Pizza> listPizza) {
 		this.listPizza = listPizza;
+	}
+
+	@Override
+	public void saveNewPizza(Pizza pizza) {
+		listPizza.add(pizza);
+
+	}
+
+	@Override
+	public void deletePizza(String codePizza) {
+		for (int i = 0; i < listPizza.size(); i++) {
+			if (listPizza.get(i).getCode().equals(codePizza)) {
+				listPizza.remove(listPizza.get(i));
+			}
+		}
+
 	}
 
 	@Override

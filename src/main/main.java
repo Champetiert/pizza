@@ -15,11 +15,15 @@ public class main {
 	
 		
 		pizzaMemDao.updatePizza("MAR",p1);
+		pizzaMemDao.deletePizza("4FRO");
 		List<Pizza> listPizza=pizzaMemDao.findAllPizzas();
 
-		//System.out.println(listPizza);
+		System.out.println(listPizza);
 		
-		System.out.println(pizzaMemDao.findPizzaByCode("4FROM"));
+		//System.out.println(pizzaMemDao.findPizzaByCode(""));
+		
+		
+		System.out.println(pizzaMemDao.isPizzaExists("4FRO"));
 	}
 
 }
