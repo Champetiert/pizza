@@ -1,5 +1,6 @@
 package client;
 
+import iPizza.ICompteStat;
 import pizza.Pizza;
 
 /**
@@ -10,7 +11,7 @@ import pizza.Pizza;
  * @author formation
  *
  */
-public class Client {
+public class Client implements ICompteStat{
 	private int id;
 	private String nom;
 	private String prenom;
