@@ -24,14 +24,14 @@ public class Client implements ICompteStat {
 
 	public void crediterCompte(double montant) throws Exception {
 		if (this.getSolde() + montant > 5000) {
-			throw new Exception("CreditException");
+			throw new Exception("CreditException: Le solde ne dois pas dépasser 5000");
 		}
 		this.setSolde(getSolde() + montant);
 	}
 
 	public void debiterCompte(double montant) throws Exception {
-		if (this.getSolde() + montant < 1) {
-			throw new Exception("DebitException");
+		if (this.getSolde() - montant < 0) {
+			throw new Exception("DebitException: Le solde ne dois pas etre inferieur à 0");
 		}
 		this.setSolde(getSolde() - montant);
 	}

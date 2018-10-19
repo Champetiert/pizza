@@ -1,18 +1,35 @@
 package livreur;
 
+import client.Client;
 import iPizza.ICompteStat;
+import pizza.Pizza;
 
-public class Livreur implements ICompteStat {
+public class Livreur extends Client implements ICompteStat {
 
-	private int id;
-	private String nom;
-	private String prenom;
-	private double solde;
+
 	
-	@Override
-	public double getSolde() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Livreur(int id, String nom, String prenom, double solde) {
+		super(id, nom, prenom, solde);
 	}
+	
+	
+
+	@Override
+	public void crediterCompte(double montant) {
+		this.setSolde(getSolde() + montant);
+	}
+
+
+
+	@Override
+	public void debiterCompte(double montant)  {
+		this.setSolde(getSolde() - montant);
+	}
+
+
+
+
+
+
 
 }

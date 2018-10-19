@@ -43,7 +43,7 @@ public class ClientDAO {
 	}
 
 
-	public void deletePizza(String name) {		//supprime la pizza de code codePizza
+	public void deleteClient(String name) {		//supprime la pizza de code codePizza
 		int index=findIndexClientByName(name);
 		if (index!=-1) {
 			listClient.remove(index);
@@ -51,7 +51,7 @@ public class ClientDAO {
 	}
 
 
-	public void updatePizza(String name, Client client) {	//met à jour la pizza de code codePizza
+	public void updateClient(String name, Client client) {	//met à jour la pizza de code codePizza
 		int index=findIndexClientByName(name);
 		if (index!=-1) {
 			listClient.set(index, client);
