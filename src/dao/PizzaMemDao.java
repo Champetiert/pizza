@@ -1,4 +1,4 @@
-package pizza;
+package dao;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,7 +7,9 @@ import java.util.List;
 import javax.management.ListenerNotFoundException;
 
 import error.PizzaException;
-import iPizza.IPizzaDao;
+import interfacePizzeria.IPizzaDao;
+import object.CatégoriesPizza;
+import object.Pizza;
 
 public class PizzaMemDao implements IPizzaDao {
 

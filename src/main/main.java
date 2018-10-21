@@ -5,12 +5,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import client.Client;
-import client.ClientDAO;
+import dao.ClientDAO;
+import dao.PizzaMemDao;
 import error.PizzaException;
-import pizza.CatégoriesPizza;
-import pizza.Pizza;
-import pizza.PizzaMemDao;
+import object.CatégoriesPizza;
+import object.Client;
+import object.Pizza;
 
 public class main {
 
@@ -28,17 +28,19 @@ public class main {
 			
 			try {
 				Client client1=new Client(1, "Jony", "Depp", 50);
-				Client client2=new Client(1, "Paris", "Hilton", 30);
+				Client client2=new Client(2, "Paris", "Hilton", 30);
+				Client client3=new Client(3, "Dwayne ", "Johnson", 100);
 				ClientDAO listClient=new ClientDAO();
 				listClient.saveNewClient(client1);
 				listClient.saveNewClient(client2);
+				listClient.saveNewClient(client3);
 				client1.commandePizza(p1);
 				client2.crediterCompte(50);
 				client2.debiterCompte(15);
 				DoubleSummaryStatistics stats=listClient.afficherAllClients().stream().mapToDouble(c->c.getSolde()).summaryStatistics();
 				System.out.println(	"Nombre de comptes = "+stats.getCount()+"\n"
 									+ "Total Solde de tous les comptes = "+stats.getSum()+" €\n"
-									+ "Moyenne Solde = "+stats.getAverage()+" €\n"
+									+ "Moyenne Solde = "+(""+stats.getAverage()).substring(0,5)+" €\n"
 									+ "Solde le plus faible = "+stats.getMin()+" €\n"
 									+ "Solde le plus élevé = "+stats.getMax()+" €\n");
 			}catch(Exception e) {

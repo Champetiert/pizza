@@ -1,13 +1,12 @@
-package client;
+package object;
 
-import iPizza.ICompteStat;
-import pizza.Pizza;
+import interfacePizzeria.ICompteStat;
 
 /**
  * @author formation
  *
  */
-public class Client implements ICompteStat {
+public class Client implements ICompteStat {		//
 
 	private int id;
 	private String nom;

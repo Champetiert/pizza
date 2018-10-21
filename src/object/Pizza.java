@@ -1,4 +1,4 @@
-package pizza;
+package object;
 
 import error.PizzaException;
 

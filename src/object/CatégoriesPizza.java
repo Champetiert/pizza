@@ -1,4 +1,4 @@
-package pizza;
+package object;
 
 public enum CatégoriesPizza {
 	VIANDE("viande"),

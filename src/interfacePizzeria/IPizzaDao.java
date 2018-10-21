@@ -1,8 +1,8 @@
-package iPizza;
+package interfacePizzeria;
 
 import java.util.List;
 
-import pizza.Pizza;
+import object.Pizza;
 
 public interface IPizzaDao {
 	List<Pizza> findAllPizzas();

@@ -1,4 +1,4 @@
-package iPizza;
+package interfacePizzeria;
 
 
 public interface ICompteStat {

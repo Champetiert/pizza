@@ -1,9 +1,8 @@
-package client;
+package dao;
 
 import java.util.ArrayList;
 
-
-import client.Client;
+import object.Client;
 
 public class ClientDAO {
 	private ArrayList<Client> listClient = null; // Liste D'objet Pizza

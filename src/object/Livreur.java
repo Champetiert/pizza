@@ -1,8 +1,6 @@
-package livreur;
+package object;
 
-import client.Client;
-import iPizza.ICompteStat;
-import pizza.Pizza;
+import interfacePizzeria.ICompteStat;
 
 public class Livreur extends Client implements ICompteStat {
 
