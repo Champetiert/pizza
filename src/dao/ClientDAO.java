@@ -9,6 +9,14 @@ import object.Pizza;
  * @author ChampetierT
  *
  */
+/**
+ * @author ChampetierT
+ *
+ */
+/**
+ * @author ChampetierT
+ *
+ */
 public class ClientDAO {
 
 	private ArrayList<Client> listClient = null; // Liste D'objet Pizza
@@ -46,7 +54,7 @@ public class ClientDAO {
 	}
 
 	/**
-	 * @return
+	 * @return Liste Client
 	 */
 	public ArrayList<Client> afficherAllClients() { // retourn la liste de Client
 		return getListClient();
@@ -54,6 +62,8 @@ public class ClientDAO {
 
 	/**
 	 * @param client
+	 * 
+	 *               add new client
 	 */
 	public void saveNewClient(Client client) { // ajoute Client à la liste
 		listClient.add(client);
@@ -61,6 +71,8 @@ public class ClientDAO {
 
 	/**
 	 * @param name
+	 * 
+	 *             remove client with this name
 	 */
 	public void deleteClient(String name) { // supprime la pizza de code codePizza
 		int index = findIndexClientByName(name);
@@ -72,6 +84,8 @@ public class ClientDAO {
 	/**
 	 * @param name
 	 * @param client
+	 * 
+	 *               change client with name "name" to Client client
 	 */
 	public void updateClient(String name, Client client) { // met à jour la pizza de code codePizza
 		int index = findIndexClientByName(name);
@@ -81,7 +95,11 @@ public class ClientDAO {
 		}
 	}
 
-	public Client findPizzaByCode(String name) { // renvoi la Client nom "nom"
+	/**
+	 * @param name of client
+	 * @return Client with name "name"
+	 */
+	public Client findPizzaByName(String name) { // renvoi la Client nom "nom"
 		Client res = null;
 		int index = findIndexClientByName(name);
 		if (index != -1) {
