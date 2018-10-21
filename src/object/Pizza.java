@@ -36,7 +36,7 @@ public class Pizza {
 
 	@Override
 	public String toString() {
-		return "Pizza code=" + code + ", désignation=" + désignation + ", prix=" + prix + ", catégorie=" + catégorie.getCatégories()+"\n\r";
+		return "Pizza code=" + code + "\n désignation=" + désignation + "\n prix=" + prix + "\n catégorie=" + catégorie.getCatégories()+"\n\r";
 	}
 
 

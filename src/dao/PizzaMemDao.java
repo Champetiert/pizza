@@ -13,71 +13,70 @@ import object.Pizza;
 
 public class PizzaMemDao implements IPizzaDao {
 
-	private ArrayList<Pizza> listPizza = null; //Liste D'objet Pizza
+	private ArrayList<Pizza> listPizza = null; // Liste D'objet Pizza
 
-	public PizzaMemDao() throws PizzaException { //Constructeur avec 3 pizza par default
+	public PizzaMemDao() throws PizzaException { // Constructeur avec 3 pizza par default
 		super();
 
 		this.listPizza = new ArrayList<Pizza>();
 
-		this.listPizza.add(new Pizza("MAR", "MARGARITA", 9,CatégoriesPizza.FROMAGE));
-		this.listPizza.add(new Pizza("4FRO", "4 FROMAGE", 11,CatégoriesPizza.FROMAGE));
-		this.listPizza.add(new Pizza("REI", "REINE", 10,CatégoriesPizza.VIANDE));
+		this.listPizza.add(new Pizza("MAR", "MARGARITA", 9, CatégoriesPizza.FROMAGE));
+		this.listPizza.add(new Pizza("4FRO", "4 FROMAGE", 11, CatégoriesPizza.FROMAGE));
+		this.listPizza.add(new Pizza("REI", "REINE", 10, CatégoriesPizza.VIANDE));
 
 	}
 
 	@Override
-	public ArrayList<Pizza> findAllPizzas() {	//retourn la liste de pizza
+	public ArrayList<Pizza> findAllPizzas() { // retourn la liste de pizza
 		return getListPizza();
 	}
 
 	@Override
-	public String toString() {			//affiche list de pizza
-		return "PizzaMemDao [listPizza=" + listPizza + "]";
+	public String toString() { // affiche list de pizza
+		return "list Pizza" + listPizza + "\n";
 	}
 
-	public ArrayList<Pizza> getListPizza() {		//getter
+	public ArrayList<Pizza> getListPizza() { // getter
 		return listPizza;
 	}
 
-	public void setListPizza(ArrayList<Pizza> listPizza) {//setter
+	public void setListPizza(ArrayList<Pizza> listPizza) {// setter
 		this.listPizza = listPizza;
 	}
 
 	@Override
-	public void saveNewPizza(Pizza pizza) {			//ajoute pizza à la liste 	
+	public void saveNewPizza(Pizza pizza) { // ajoute pizza à la liste
 		listPizza.add(pizza);
 	}
 
 	@Override
-	public void deletePizza(String codePizza) {		//supprime la pizza de code codePizza
-		int index=findIndexPizzaByCode(codePizza);
-		if (index!=-1) {
+	public void deletePizza(String codePizza) { // supprime la pizza de code codePizza
+		int index = findIndexPizzaByCode(codePizza);
+		if (index != -1) {
 			listPizza.remove(index);
-		}	
+		}
 	}
 
 	@Override
-	public void updatePizza(String codePizza, Pizza pizza) {	//met à jour la pizza de code codePizza
-		int index=findIndexPizzaByCode(codePizza);
-		if (index!=-1) {
+	public void updatePizza(String codePizza, Pizza pizza) { // met à jour la pizza de code codePizza
+		int index = findIndexPizzaByCode(codePizza);
+		if (index != -1) {
 			listPizza.set(index, pizza);
 			System.out.println("Pizza changer \n\n");
 		}
 	}
 
 	@Override
-	public Pizza findPizzaByCode(String codePizza) {			//renvoi la pizza de code codePizza
+	public Pizza findPizzaByCode(String codePizza) { // renvoi la pizza de code codePizza
 		Pizza res = null;
-		int index=findIndexPizzaByCode(codePizza);
-		if (index!=-1) {
+		int index = findIndexPizzaByCode(codePizza);
+		if (index != -1) {
 			res = listPizza.get(index);
 		}
 		return res;
 	}
-	
 
-	public int findIndexPizzaByCode(String codePizza) {			//renvoi la position du codePizza dans la liste
+	public int findIndexPizzaByCode(String codePizza) { // renvoi la position du codePizza dans la liste
 		int res = -1;
 		for (int i = 0; i < listPizza.size(); i++) {
 			if (listPizza.get(i).getCode().equals(codePizza)) {
@@ -89,7 +88,7 @@ public class PizzaMemDao implements IPizzaDao {
 	}
 
 	@Override
-	public boolean isPizzaExists(String codePizza) {			//renvoi true si la pizza existe sinon false
+	public boolean isPizzaExists(String codePizza) { // renvoi true si la pizza existe sinon false
 		boolean res = false;
 		if (this.findPizzaByCode(codePizza) != null) {
 			res = true;
